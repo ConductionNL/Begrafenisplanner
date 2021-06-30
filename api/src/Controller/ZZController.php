@@ -5,6 +5,7 @@
 namespace App\Controller;
 
 use Conduction\CommonGroundBundle\Service\ApplicationService;
+
 //use App\Service\RequestService;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use function GuzzleHttp\Promise\all;
@@ -32,69 +33,14 @@ class ZZController extends AbstractController
      */
     public function indexAction(Session $session, Request $request, CommonGroundService $commonGroundService, ApplicationService $applicationService, ParameterBagInterface $params, string $slug = 'home')
     {
-        $content = false;
-        $variables = $applicationService->getVariables();
-        if ($params->get('app_id')) {
-            $variables['application'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'applications', 'id' => $params->get('app_id')]); /* @todo lekker hacky */
-            $variables['defaultConfiguration'] = $variables['application']['defaultConfiguration'];
-            $variables['organization'] = $commonGroundService->getResource(['component' => 'wrc', 'type' => 'organizations', 'id' => $variables['application']['organization']['id']]);
-        }
-
-        // Lets provide this data to the template
-        $variables['query'] = $request->query->all();
-        $variables['post'] = $request->request->all();
-        $variables['session'] = $session->all();
-
-        // Lets also provide any or all id
-        $slug_parts = explode('/', $slug);
-        $variables['id'] = end($slug_parts);
-
-        $variables['slug'] = $slug;
-
-        // Lets find an appoptiate slug
-        $template = $commonGroundService->getResource(['component'=>'wrc', 'type'=>'applications', 'id'=> $params->get('app_id').'/'.$slug]);
-//        var_dump($template['content']);
-
-        if ($template && array_key_exists('content', $template)) {
-            $content = $template['content'];
-        }
-
-        // Lets see if there is a post to procces
-        if ($request->isMethod('POST')) {
-            $resource = $request->request->all();
-            if (array_key_exists('@component', $resource)) {
-                // Passing the variables to the resource
-                $resource = $commonGroundService->saveResource($resource, ['component' => $resource['@component'], 'type' => $resource['@type']]);
+        $variables = [];
+        $processes = $commonGroundService->getResourceList(['component' => 'ptc', 'type' => 'process_types'])['hydra:member'];
+        foreach ($processes as $process) {
+            if ($process['name'] == 'Aanvragen begrafenis') {
+                $variables['process'] = $process;
             }
         }
 
-//        var_dump($variables);
-//        die;
-        // Create the template
-        if ($content) {
-            $twigTemplate = $this->get('twig')->createTemplate($content);
-            $twigTemplate = $twigTemplate->render($variables);
-        /*
-        } elseif(array_key_exists('content', $template)) {
-        $content = "The template ".$template['id']." dosn't seem to contain a content";
-
-        $twigTemplate = $this->get('twig')->createTemplate($content);
-        $twigTemplate = $twigTemplate->render($variables);
-
-        $twigTemplate = $this->render('404.html.twig', $variables);
-        return $twigTemplate; */
-        } else {
-            var_dump($template);
-            exit;
-            $twigTemplate = $this->render('404.html.twig', $variables);
-
-            return $twigTemplate;
-        }
-
-        return $response = new Response(
-            $twigTemplate,
-            Response::HTTP_OK,
-            ['content-type' => 'text/html']
-        );
+        return $variables;
     }
 }
