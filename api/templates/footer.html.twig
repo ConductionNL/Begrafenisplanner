@@ -1,7 +1,7 @@
 <footer class="footer col-xs">
     <div class="container">
         <div class="row">
-            {% if application is defined
+            {% if application|default
                 and application.defaultConfiguration.configuration is defined
                 and application.defaultConfiguration.configuration.footer1 is defined
                 and application.defaultConfiguration.configuration.footer1 is not empty %}
@@ -23,7 +23,7 @@
                 </div>
                 {% endif %}
 
-                {% if application is defined
+                {% if application|default
                     and application.defaultConfiguration.configuration is defined
                     and application.defaultConfiguration.configuration.footer2 is defined
                     and application.defaultConfiguration.configuration.footer2 is not empty %}
@@ -45,7 +45,7 @@
                 </div>
             {% endif %}
 
-            {% if application is defined
+            {% if application|default
                 and application.defaultConfiguration.configuration is defined
                 and application.defaultConfiguration.configuration.footer3 is defined
                 and application.defaultConfiguration.configuration.footer3 is not empty %}
@@ -67,7 +67,7 @@
                 </div>
                 {% endif %}
 
-                {% if application is defined
+                {% if application|default
                     and application.defaultConfiguration.configuration is defined
                     and application.defaultConfiguration.configuration.footer4 is defined
                     and application.defaultConfiguration.configuration.footer4 is not empty %}
