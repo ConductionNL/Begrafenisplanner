@@ -5,6 +5,7 @@
 namespace App\Controller;
 
 use Conduction\CommonGroundBundle\Service\ApplicationService;
+
 //use App\Service\RequestService;
 use Conduction\CommonGroundBundle\Service\CommonGroundService;
 use Conduction\CommonGroundBundle\Service\PtcService;
@@ -36,7 +37,7 @@ class PtcController extends AbstractController
     public function userAction(Session $session, Request $request, CommonGroundService $commonGroundService, ApplicationService $applicationService, ParameterBagInterface $params, string $slug = 'home')
     {
         $variables = [];
-        $variables['resources'] = $commonGroundService->getResourceList(['component'=>'ptc', 'type'=>'process_types'])['hydra:member'];
+        $variables['resources'] = $commonGroundService->getResourceList(['component' => 'ptc', 'type' => 'process_types'])['hydra:member'];
 
         return $variables;
     }
@@ -49,7 +50,7 @@ class PtcController extends AbstractController
     public function organisationAction(Session $session, Request $request, CommonGroundService $commonGroundService, ApplicationService $applicationService, ParameterBagInterface $params, string $slug = 'home')
     {
         $variables = [];
-        $variables['resources'] = $commonGroundService->getResourceList(['component'=>'brc', 'type'=>'invoices'], ['submitters.brp'=>$variables['user']['@id']])['hydra:member'];
+        $variables['resources'] = $commonGroundService->getResourceList(['component' => 'brc', 'type' => 'invoices'], ['submitters.brp' => $variables['user']['@id']])['hydra:member'];
 
         return $variables;
     }
@@ -84,7 +85,8 @@ class PtcController extends AbstractController
         VrcService $vrcService,
         PtcService $ptcService,
         ParameterBagInterface $params
-    ) {
+    )
+    {
         $variables = [];
         $variables['slug'] = $stage;
         $variables['submit'] = $request->query->get('submit', 'false');
@@ -92,7 +94,7 @@ class PtcController extends AbstractController
         // Lets load a request
         if ($loadrequest = $request->query->get('request')) {
             $requestUUID = $commonGroundService->getUuidFromUrl($loadrequest);
-            $variables['request'] = $commonGroundService->getResource(['component'=>'vrc', 'type'=>'requests', 'id'=>$requestUUID]);
+            $variables['request'] = $commonGroundService->getResource(['component' => 'vrc', 'type' => 'requests', 'id' => $requestUUID]);
             $variables['submit'] = 'true';
             $session->set('request', $variables['request']);
         }
@@ -100,14 +102,14 @@ class PtcController extends AbstractController
         $variables['process'] = $commonGroundService->getResource(['component' => 'ptc', 'type' => 'process_types', 'id' => $id]);
 
         if ($this->getUser()) {
-            $variables['requests'] = $commonGroundService->getResourceList(['component' => 'vrc', 'type' => 'requests'], ['process_type' => $variables['process']['@id'], 'submitters.brp' => $this->getUser()->getPerson(), 'order[dateCreated]'=>'desc'])['hydra:member'];
+            $variables['requests'] = $commonGroundService->getResourceList(['component' => 'vrc', 'type' => 'requests'], ['process_type' => $variables['process']['@id'], 'submitters.brp' => $this->getUser()->getPerson(), 'order[dateCreated]' => 'desc'])['hydra:member'];
         }
 
         if ($stage == 'start') {
             $session->remove('request');
         }
 
-        $variables['request'] = $session->get('request', ['requestType'=>$variables['process']['requestType'], 'properties'=>[]]);
+        $variables['request'] = $session->get('request', ['requestType' => $variables['process']['requestType'], 'properties' => []]);
 
         // What if the request in session is defrend then the procces type that we are currently running? Or if we dont have a process_type at all? Then we create a base request
         if (
@@ -148,8 +150,8 @@ class PtcController extends AbstractController
                 //We are going to need a JWT token for the DRC and ZTC here
 
                 $token = $commonGroundService->getJwtToken('ztc');
-                $commonGroundService->setHeader('Authorization', 'Bearer '.$token);
-                $infoObjectTypes = $commonGroundService->getResourceList(['component'=>'ztc', 'type'=>'informatieobjecttypen'])['results'];
+                $commonGroundService->setHeader('Authorization', 'Bearer ' . $token);
+                $infoObjectTypes = $commonGroundService->getResourceList(['component' => 'ztc', 'type' => 'informatieobjecttypen'])['results'];
 
                 $informationObjectType = null;
                 foreach ($infoObjectTypes as $infoObjectType) {
@@ -158,7 +160,7 @@ class PtcController extends AbstractController
                     }
                 }
                 if ($informationObjectType) {
-                    foreach ($files['request']['properties'] as $key=>$file) {
+                    foreach ($files['request']['properties'] as $key => $file) {
                         $drc['informatieobjecttype'] = $informationObjectType;
                         $drc['bronorganisatie'] = '999990482';
                         $drc['titel'] = urlencode($key);
@@ -175,8 +177,8 @@ class PtcController extends AbstractController
                         $drc['inhoud'] = base64_encode(file_get_contents($file->getPathname()));
 
                         $token = $commonGroundService->getJwtToken('drc');
-                        $commonGroundService->setHeader('Authorization', 'Bearer '.$token);
-                        $result = $commonGroundService->createResource($drc, ['component'=>'drc', 'type'=>'enkelvoudiginformatieobjecten']);
+                        $commonGroundService->setHeader('Authorization', 'Bearer ' . $token);
+                        $result = $commonGroundService->createResource($drc, ['component' => 'drc', 'type' => 'enkelvoudiginformatieobjecten']);
                         $request['properties'][$key] = $result['url'];
                         $commonGroundService->setHeader('Authorization', $this->getParameter('app_commonground_key'));
                     }
@@ -185,6 +187,14 @@ class PtcController extends AbstractController
 
             // We only support the posting and saving of
             if ($this->getUser() || in_array($request['status'], ['submitted'])) {
+
+                $orgs = $commonGroundService->getResourceList(['component' => 'wrc', 'type' => 'organizations'])['hydra:member'];
+                foreach ($orgs as $org) {
+                    if ($org['rsin'] == '999990482') {
+                        $request['organization'] = $org['@id'];
+                    }
+                }
+                var_dump($request);
                 $request = $commonGroundService->saveResource($request, ['component' => 'vrc', 'type' => 'requests']);
             }
 
@@ -212,11 +222,13 @@ class PtcController extends AbstractController
         }
 
         if (key_exists('show', $variables['stage']) && !$variables['stage']['show']) {
-            return $this->redirect($this->generateUrl('app_ptc_process_stage', ['id' => $id, 'stage'=>$variables['stage']['next']['slug']]));
+            return $this->redirect($this->generateUrl('app_ptc_process_stage', ['id' => $id, 'stage' => $variables['stage']['next']['slug']]));
         }
 
         /* lagacy */
         $variables['resource'] = $variables['request'];
+
+//        var_dump($variables);die;
 
         return $variables;
     }
