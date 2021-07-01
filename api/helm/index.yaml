@@ -1,12 +1,52 @@
 apiVersion: v1
 entries:
+  begrafenisplanner:
+  - annotations:
+      artifacthub.io/containsSecurityUpdates: "true"
+    apiVersion: v2
+    appVersion: V1.0
+    created: "2021-07-01T13:54:51.9057986Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.1.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.7.7
+    description: De Proto Applicatie levert een vooringerichte versie van het Symfony
+      PHP framework, waarbij de NL Design System componenten zijn voorzien van template
+      widgets. Oftewel het is mogelijk om vanuit je PHP/HTML templates direct gebruik
+      te maken van NL Design Elementen. De business logica van de Proto Applicatie
+      wordt geleverd door de generieke Common Ground Bundle.
+    digest: 4684bd20ee3b76e05b777fd2f6211407ff5afe678d99e81cf095a7217c3d1942
+    home: https://www.conduction.nl
+    icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
+    keywords:
+    - commonground
+    - haven
+    - nlx
+    - component
+    maintainers:
+    - email: ruben@conduction.nl
+      name: Ruben van der Linde
+    - email: info@conduction.nl
+      name: Conduction
+    name: begrafenisplanner
+    sources:
+    - https://commonground.conduction.nl/
+    - https://www.commonground.nl/
+    urls:
+    - begrafenisplanner-1.0.0.tgz
+    version: 1.0.0
   pan:
   - apiVersion: v1
     appVersion: V1.0
-    created: "2021-06-30T08:41:58.107225Z"
+    created: "2021-07-01T13:54:51.9939799Z"
     description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
       beschikbaar.
-    digest: 8a0208e4df17b39b8c7e209f0fc14d34d62d9f95ab80a8de83ef5b41c81accf6
+    digest: 448d79375cf1c78ea5f0421a6838b408eeee63f4e7da4cda0da00221e29cfc5d
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -31,7 +71,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-06-30T08:41:58.1326244Z"
+    created: "2021-07-01T13:54:51.9971155Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -65,7 +105,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.0.11
-    created: "2021-06-30T08:41:58.1615837Z"
+    created: "2021-07-01T13:54:52.0013668Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -94,4 +134,4 @@ entries:
     urls:
     - charts/redis-12.7.7.tgz
     version: 12.7.7
-generated: "2021-06-30T08:41:58.0507519Z"
+generated: "2021-07-01T13:54:51.8480758Z"
