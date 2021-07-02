@@ -5,7 +5,7 @@ entries:
       artifacthub.io/containsSecurityUpdates: "true"
     apiVersion: v2
     appVersion: V1.0
-    created: "2021-07-02T14:13:47.4263591Z"
+    created: "2021-07-02T14:37:47.4788044Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -20,7 +20,7 @@ entries:
       widgets. Oftewel het is mogelijk om vanuit je PHP/HTML templates direct gebruik
       te maken van NL Design Elementen. De business logica van de Proto Applicatie
       wordt geleverd door de generieke Common Ground Bundle.
-    digest: dd8d28e93c3dae6779c4c7a909a212b6a92f4f487a4e462e47112f84fc4e72db
+    digest: 5c8784fd9a741b9f3e448bc45adddb12a3a70d6b4449e369755722d7f5bb4305
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -45,7 +45,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-07-02T14:13:47.4707818Z"
+    created: "2021-07-02T14:37:47.535138Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -79,7 +79,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.0.11
-    created: "2021-07-02T14:13:47.5204452Z"
+    created: "2021-07-02T14:37:47.600733Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -108,4 +108,4 @@ entries:
     urls:
     - charts/redis-12.7.7.tgz
     version: 12.7.7
-generated: "2021-07-02T14:13:47.3461114Z"
+generated: "2021-07-02T14:37:47.3831664Z"
