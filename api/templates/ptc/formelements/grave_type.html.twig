@@ -1,3 +1,4 @@
+
 {% if request.properties.begraafplaats is defined and request.properties.begraafplaats is not empty %}
     {% set grave_types = commonground_resource_list({'component':'grc', 'type':'grave_types'})['hydra:member'] %}
     <div class="input combobox" id="grafsoort_combobox">

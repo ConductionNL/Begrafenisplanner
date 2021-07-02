@@ -28,9 +28,13 @@ parameters:
             auth: apikey
             location: https://dev.zuid-drecht.nl/digispoof
             apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+        eh:
+            auth: apikey
+            location: https://huwelijksplannernew-conduction.commonground.nu/eherkenning
+            apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
         grc:
             auth: apikey
-            location: https://dev.zuid-drecht.nl/api/v1/grc
+            location: https://huwelijksplannernew-conduction.commonground.nu/api/v1/grc
             apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
         ias:
             auth: apikey
@@ -39,6 +43,10 @@ parameters:
         irc:
             auth: apikey
             location: https://dev.zuid-drecht.nl/api/v1/irc
+            apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+        kvk:
+            auth: apikey
+            location: https://huwelijksplannernew-conduction.commonground.nu/api/v1/kvk
             apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
         lc:
             auth: apikey

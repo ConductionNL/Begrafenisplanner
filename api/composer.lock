@@ -668,12 +668,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConductionNL/CommonGroundBundle.git",
-                "reference": "0a9644847c282ee8afce4791f36c2eb8135a79f4"
+                "reference": "722c76c50a2a4eb90c3a17e6300c54925934024e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/0a9644847c282ee8afce4791f36c2eb8135a79f4",
-                "reference": "0a9644847c282ee8afce4791f36c2eb8135a79f4",
+                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/722c76c50a2a4eb90c3a17e6300c54925934024e",
+                "reference": "722c76c50a2a4eb90c3a17e6300c54925934024e",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,7 @@
                 "issues": "https://github.com/ConductionNL/ConductionCommonGroundBundle/issues",
                 "source": "https://github.com/ConductionNL/ConductionCommonGroundBundle"
             },
-            "time": "2021-06-30T10:04:42+00:00"
+            "time": "2021-07-02T09:19:27+00:00"
         },
         {
             "name": "dasprid/enum",
