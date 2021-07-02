@@ -194,7 +194,6 @@ class PtcController extends AbstractController
                         $request['organization'] = $org['@id'];
                     }
                 }
-                var_dump($request);
                 $request = $commonGroundService->saveResource($request, ['component' => 'vrc', 'type' => 'requests']);
             }
 

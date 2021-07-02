@@ -5,7 +5,7 @@ entries:
       artifacthub.io/containsSecurityUpdates: "true"
     apiVersion: v2
     appVersion: V1.0
-    created: "2021-07-01T14:06:16.5293401Z"
+    created: "2021-07-02T14:37:47.4788044Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -20,7 +20,7 @@ entries:
       widgets. Oftewel het is mogelijk om vanuit je PHP/HTML templates direct gebruik
       te maken van NL Design Elementen. De business logica van de Proto Applicatie
       wordt geleverd door de generieke Common Ground Bundle.
-    digest: 5e63e6699c8369a5d2e205451358b801830134b472891b6d97d797f5737249de
+    digest: 5c8784fd9a741b9f3e448bc45adddb12a3a70d6b4449e369755722d7f5bb4305
     home: https://www.conduction.nl
     icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
     keywords:
@@ -40,38 +40,12 @@ entries:
     urls:
     - begrafenisplanner-1.0.0.tgz
     version: 1.0.0
-  pan:
-  - apiVersion: v1
-    appVersion: V1.0
-    created: "2021-07-01T14:06:16.5473143Z"
-    description: Naast deze JSON rest API is er ook een [graphql](/graphql) interface
-      beschikbaar.
-    digest: 448d79375cf1c78ea5f0421a6838b408eeee63f4e7da4cda0da00221e29cfc5d
-    home: https://www.conduction.nl
-    icon: https://conductionnl.github.io/images/conduction_avatar_blue_on_transparant.svg
-    keywords:
-    - commonground
-    - haven
-    - nlx
-    - component
-    maintainers:
-    - email: ruben@conduction.nl
-      name: Ruben van der Linde
-    - email: info@conduction.nl
-      name: Conduction
-    name: pan
-    sources:
-    - https://commonground.conduction.nl/
-    - https://www.commonground.nl/
-    urls:
-    - pan-0.1.0.tgz
-    version: 0.1.0
   postgresql:
   - annotations:
       category: Database
     apiVersion: v2
     appVersion: 11.10.0
-    created: "2021-07-01T14:06:16.5509349Z"
+    created: "2021-07-02T14:37:47.535138Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -105,7 +79,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 6.0.11
-    created: "2021-07-01T14:06:16.5635034Z"
+    created: "2021-07-02T14:37:47.600733Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -134,4 +108,4 @@ entries:
     urls:
     - charts/redis-12.7.7.tgz
     version: 12.7.7
-generated: "2021-07-01T14:06:16.5175973Z"
+generated: "2021-07-02T14:37:47.3831664Z"
