@@ -45,7 +45,7 @@
     {% if application['style']['favicon']['base64'] is defined and application['style']['favicon']['base64'] is not empty %}
         <link rel="icon" href="{{ application['style']['favicon']['base64']|raw }}">
     {% else %}
-        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
     {% endif %}
     <link rel="stylesheet" href="/uno/core/base.css">
     <link rel="stylesheet" href="/uno/core/grid.css">
