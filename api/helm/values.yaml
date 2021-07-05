@@ -14,6 +14,99 @@ security:
   jwt:
     id:
     privateKey:
+  dependencies:
+      arc:
+          auth: apikey
+          location: agendaservice.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      brp:
+          auth: apikey
+          location: brpservice.local
+          apiKey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      bc:
+          auth: apikey
+          location: betaalservice.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      bs:
+          auth: apikey
+          location: berichtservice.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      cc:
+          auth: apikey
+          location: contactcomponent.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      digispoof-interface:
+          auth: apikey
+          location: digispoof-interface.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      ds:
+          auth: apikey
+          location: digispoof-interface.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      eh:
+          auth: apikey
+          location: eherkenning-ui.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      grc:
+          auth: apikey
+          location: grafregistratiecomponent.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      ias:
+          auth: apikey
+          location: instemmingservice.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      irc:
+          auth: apikey
+          location: instemmingsregistratiecomponent.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      kvk:
+          auth: apikey
+          location: kvkservice.local
+          apiKey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      lc:
+          auth: apikey
+          location: locatiecatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      ltc:
+          auth: apikey
+          location: landelijketabellencatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      mrc:
+          auth: apikey
+          location: medewerkerscatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      memo:
+          auth: apikey
+          location: memo-component.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      orc:
+          auth: apikey
+          location: orderregistratiecomponent.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      pdc:
+          auth: apikey
+          location: productenendienstencatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      ptc:
+          auth: apikey
+          location: procestypecatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      uc:
+          auth: apikey
+          location: user-component.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      vrc:
+          auth: apikey
+          location: verzoekregistratiecomponent.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      vtc:
+          auth: apikey
+          location: verzoektypecatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
+      wrc:
+          auth: apikey
+          location: webresourcecatalogus.local
+          apikey: 45c1a4b6-59d3-4a6e-86bf-88a872f35845
 
 php:
   repository: docker.io/conduction/protocomponent-php
