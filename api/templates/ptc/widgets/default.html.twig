@@ -11,9 +11,8 @@
 
 {% endif %}
 
-{#{% if request.organization is not defined or request.organization is empty %}#}{{ process['organization'] }}
-<input type="hidden" name="request[organization]" value="{{ process['organization'] }}">
-{#{% endif %}#}
+<input type="hidden" name="request[organization]" value="{{ process['sourceOrganization'] }}">
+
 <input type="hidden" name="request[processType]" value="{{ process['@id'] }}">
 
 {% if stage.next is defined and stage.next is not empty %}
