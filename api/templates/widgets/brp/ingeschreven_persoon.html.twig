@@ -137,7 +137,7 @@
                     for (let i = 0; i < result['_embedded']['ingeschrevenpersonen'].length; i++) {
 
                         $('#persoonsLijst').append('<div class="input__group input__group--radio test">');
-                        $('#persoonsLijst').append('<input value="' + result['_embedded']['ingeschrevenpersonen'][i]['_links']['self'] + '" type="radio" name="request[properties][{{ property.name }}]" id="' + i + '" class="input__control--radio">');
+                        $('#persoonsLijst').append('<input value="' + result['_embedded']['ingeschrevenpersonen'][i]['_links']['self']['href'] + '" type="radio" name="request[properties][{{ property.name }}]" id="' + i + '" class="input__control--radio">');
                         $('#persoonsLijst').append('<label class="input__label input__label--radio" for="' + i + '"> '
                             + result['_embedded']['ingeschrevenpersonen'][i]["naam"]["voornamen"]
                             + ' '

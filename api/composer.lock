@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a6e57ed5d05ae76d34fe7f054dde06a",
+    "content-hash": "9d36934261e969dcea4934d9cf59afee",
     "packages": [
         {
             "name": "api-platform/api-pack",
@@ -664,16 +664,16 @@
         },
         {
             "name": "conduction/commongroundbundle",
-            "version": "dev-feature-localeSettings",
+            "version": "v2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ConductionNL/CommonGroundBundle.git",
-                "reference": "a6c22625f7fe17235030003cd16679a1f2a8c82a"
+                "reference": "371090519d5bf7a699afd941a691a04f7c76edc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/a6c22625f7fe17235030003cd16679a1f2a8c82a",
-                "reference": "a6c22625f7fe17235030003cd16679a1f2a8c82a",
+                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/371090519d5bf7a699afd941a691a04f7c76edc3",
+                "reference": "371090519d5bf7a699afd941a691a04f7c76edc3",
                 "shasum": ""
             },
             "require": {
@@ -756,7 +756,7 @@
                 "issues": "https://github.com/ConductionNL/ConductionCommonGroundBundle/issues",
                 "source": "https://github.com/ConductionNL/ConductionCommonGroundBundle"
             },
-            "time": "2021-07-15T10:51:11+00:00"
+            "time": "2021-07-15T11:10:28+00:00"
         },
         {
             "name": "dasprid/enum",
