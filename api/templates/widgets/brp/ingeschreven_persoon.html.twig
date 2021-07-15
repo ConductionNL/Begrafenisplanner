@@ -116,7 +116,7 @@
             type: 'GET',
             processData: true,
             headers: {
-                Accept: 'application/ld+json'
+                Accept: 'application/hal+json'
             },
             data: data,
             statusCode: {
@@ -132,16 +132,16 @@
             },
             success: function (result) {
                 $('.spinner').hide();
-                if (result["hydra:member"].length >= 1) {
+                if (result['_embedded']['ingeschrevenpersonen'].length >= 1) {
                     $('#persoonsLijst').append('<legend class="input__legend">Persoon:</legend>')
-                    for (let i = 0; i < result['hydra:member'].length; i++) {
+                    for (let i = 0; i < result['_embedded']['ingeschrevenpersonen'].length; i++) {
 
                         $('#persoonsLijst').append('<div class="input__group input__group--radio test">');
-                        $('#persoonsLijst').append('<input value="' + result["hydra:member"][i]['@id'] + '" type="radio" name="request[properties][{{ property.name }}]" id="' + i + '" class="input__control--radio">');
+                        $('#persoonsLijst').append('<input value="' + result['_embedded']['ingeschrevenpersonen'][i]['_links']['self'] + '" type="radio" name="request[properties][{{ property.name }}]" id="' + i + '" class="input__control--radio">');
                         $('#persoonsLijst').append('<label class="input__label input__label--radio" for="' + i + '"> '
-                            + result["hydra:member"][i]["naam"]["voornamen"]
+                            + result['_embedded']['ingeschrevenpersonen'][i]["naam"]["voornamen"]
                             + ' '
-                            + result["hydra:member"][i]["naam"]["geslachtsnaam"]
+                            + result['_embedded']['ingeschrevenpersonen'][i]["naam"]["geslachtsnaam"]
                             + ' </label>');
                         $('#persoonsLijst').append('</div>');
                     }

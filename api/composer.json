@@ -6,7 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/api-pack": "^1.1",
-        "conduction/commongroundbundle": "^2.*-dev",
+        "conduction/commongroundbundle": "dev-feature-localeSettings",
         "dompdf/dompdf": "^0.8.5",
         "endroid/qr-code-bundle": "^3.4",
         "phpdocumentor/reflection-docblock": "^5.1",
